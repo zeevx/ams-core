@@ -27,15 +27,15 @@ Artisan::command('configure', function (){
 
     Artisan::call('passport:install');
 
-    Role::updateOrcreate([
+    Role::create([
         'name' => 'administrator'
     ]);
 
-    Role::updateOrcreate([
+    Role::create([
         'name' => 'client'
     ]);
 
-    $user = User::updateOrcreate([
+    $user = User::create([
         'email' => 'administrator@ams-core.test',
         'phone' => '2349035875967',
         ],
@@ -48,7 +48,7 @@ Artisan::command('configure', function (){
     ]);
     $user->assignRole('administrator');
 
-    $user = User::updateOrcreate([
+    $user = User::create([
         'email' => 'adamsohiani@gmail.com',
         'phone' => '2347069948122',
     ],
