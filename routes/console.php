@@ -38,8 +38,6 @@ Artisan::command('configure', function (){
     $user = User::create([
         'email' => 'administrator@ams-core.test',
         'phone' => '2349035875967',
-        ],
-        [
         'name' => 'Administrator',
         'password' => Hash::make('password')
     ]);
@@ -51,10 +49,8 @@ Artisan::command('configure', function (){
     $user = User::create([
         'email' => 'adamsohiani@gmail.com',
         'phone' => '2347069948122',
-    ],
-        [
-            'name' => 'Adams Paul',
-            'password' => Hash::make('password')
+        'name' => 'Adams Paul',
+        'password' => Hash::make('password')
         ]);
     $user->assignRole('client');
     $user->profile()->create([
