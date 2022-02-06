@@ -24,8 +24,10 @@ Artisan::command('inspire', function () {
 Artisan::command('configure', function (){
 
     Artisan::call('migrate:fresh');
+    $this->comment('Migration completed!');
 
     Artisan::call('passport:install');
+    $this->comment('Passport installation completed!');
 
     Role::create([
         'name' => 'administrator'
@@ -34,6 +36,7 @@ Artisan::command('configure', function (){
     Role::create([
         'name' => 'client'
     ]);
+    $this->comment('Role creation completed!');
 
     $user = User::create([
         'email' => 'administrator@ams-core.test',
@@ -45,6 +48,7 @@ Artisan::command('configure', function (){
         'address' => 'Some Address'
     ]);
     $user->assignRole('administrator');
+    $this->comment('Admin creation completed!');
 
     $user = User::create([
         'email' => 'adamsohiani@gmail.com',
@@ -56,5 +60,7 @@ Artisan::command('configure', function (){
     $user->profile()->create([
         'address' => 'Some Another Address'
     ]);
+    $this->comment('Client creation completed!');
+
     $this->comment('Configuration completed!');
 });
